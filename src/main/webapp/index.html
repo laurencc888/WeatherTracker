@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Conditions - Home</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<!-- Login/Register bar -->
+    <header>
+        <a href="login.html" id= "loginButton">Login</a>
+        <a href="register.html">Register</a>
+    </header>
+    
+    
+    <main>
+        <img id="logo" src="images/logo.png" alt="Weather Logo">
+        
+        <!-- Middle Container -->
+        <form id="searchForm">
+	        <div class="city-container">
+		        <input type="text" id="cityContainer" placeholder="Los Angeles, CA"/>
+		        <div id="magIcon"></div>
+		    </div>
+		    
+		    <div class="latlong-container" id="latlong-Container">
+                <input type="text" id="latitudeInput" placeholder="Latitude" />
+                <input type="text" id="longitudeInput" placeholder="Longitude" />
+                <div id="mapIcon"></div>
+            </div>
+            
+            <div class="radio-group" id="radioContainer">
+                <label>
+                	<input type="radio" id="cityOption" name="searchType" value="city" checked> City
+                </label>
+                <label>
+                	<input type="radio" id="latLongOption" name="searchType" value="latlong"> Lat/Long
+                </label>
+            </div>
+            <button id="displayAll" type="button">Display All</button>
+        </form>
+        
+        <!-- Live Details -->
+        <div class="details" id="detailsContainer" style="display: none;">
+        	<figure>
+        		<img id="earth" src="images/planet-earth.png" alt="Location Image">
+        		<figcaption id="location">Location</figcaption>
+        	</figure> 
+        	<figure>
+        		<img id="snowflake" src="images/snowflake.png" alt="Low Temp Image">
+        		<figcaption id="tempLow">Temp Low</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="sun" src="images/sun.png" alt="High Temp Image">
+        		<figcaption id="tempHigh">Temp High</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="windBlow" src="images/wind.png" alt="Wind Image">
+        		<figcaption id="wind">Wind</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="teardrop" src="images/drop.png" alt="Humidity Image">
+        		<figcaption id="humidity">Humidity</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="marker" src="images/LocationIcon.png" alt="Coords Image">
+        		<figcaption id="coordinates">Coordinates</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="thermometer" src="images/thermometer.png" alt="Current Temp Image">
+        		<figcaption id="currTemp">Current Temp</figcaption>
+        	</figure>
+        	<figure>
+        		<img id="sunrise" src="images/sunrise-icon.png" alt="Sunrise Image">
+        		<figcaption id="sunriseset">Sunrise/set</figcaption>
+        	</figure>
+        </div>
+        
+        <!-- Search Results -->
+	    <div id="searchContainer" style="display: none;">
+	        <h2>All Cities</h2>
+		    <div id="sortMenu" style="display: none;">
+		        <label for="sortDropdown">Sort by:</label>
+		        <select id="sortDropdown">
+		            <option value="tempLowDesc">Temp Low DESC</option>
+			        <option value="cityNameAZ">City Name A-Z</option>
+			        <option value="cityNameZA">City Name Z-A</option>
+			        <option value="tempLowAsc">Temp Low ASC</option>
+			        <option value="tempHighAsc">Temp High ASC</option>
+			        <option value="tempHighDesc">Temp High DESC</option>
+		        </select>
+		    </div>
+	        <table id="citiesTable">
+	            <thead>
+	                <tr>
+	                    <th>City Name</th>
+	                    <th>Temp. Low</th>
+	                    <th>Temp. High</th>
+	                </tr>
+	            </thead>
+	            <tbody></tbody>
+	        </table>
+	    </div>
+    </main>
+    
+    <!-- Google Maps Overlay -->
+    <div class="map" id="mapOverlay">
+        <div id="googleMap"></div>
+    </div>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=PLACEHOLDER" defer></script>
+    
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS Assignment3;
+
+CREATE DATABASE Assignment3;
+
+USE Assignment3;
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    pass VARCHAR(255) NOT NULL 
+);
+
+CREATE TABLE searches (
+    search_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    search_query TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY fk1(user_id) REFERENCES users(user_id)
+    ON DELETE CASCADE 
+);
